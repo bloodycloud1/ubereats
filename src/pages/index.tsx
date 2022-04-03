@@ -1,43 +1,34 @@
 import { GetServerSideProps } from "next";
+import { FC } from "react";
+import { reustarantType } from "../types/reustarantType";
+
+type reustarantTypeProps = {
+  reustarant: [reustarantType];
+};
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch("http://localhost:3000/api/reustarants");
+  const res = await fetch("http://localhost:3000//api/reustarants");
   const data = await res.json();
 
   return {
     props: {
-      data,
+      reustarant: data,
     },
   };
 };
 
-const Home = ({ data }: { data: [] }) => {
-  console.log(data);
+const Home: FC<reustarantTypeProps> = ({ reustarant }) => {
   return (
     <div>
-      <div className="text-3xl font-bold underline">Welcome to ubereats</div>
-      <div>
-        {data.map((item) => {
-          let { id, name } = item;
-          return <div key={id}>{name}</div>;
-        })}
-      </div>
+      {reustarant.map(({ id, name, type, time }) => (
+        <div key={id}>
+          <div>{name}</div>
+          <div>{type}</div>
+          <div>{time}</div>
+        </div>
+      ))}
     </div>
   );
 };
-
-// const Home: FC<{ data: [] }> = ({ data }) => {
-//   console.log(data);
-//   return (
-//     <div>
-//       <div className="text-3xl font-bold underline">Welcome to ubereats</div>
-//       <div>
-//         {data.map((item: any) => {
-//           return <div key={item.id}>{item.name}</div>;
-//         })}
-//       </div>
-//     </div>
-//   );
-// };
 
 export default Home;
