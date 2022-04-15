@@ -6,5 +6,5 @@ export interface ReustarantType {
 }
 
 export interface ReustarantTypeProps {
-  reustarants: [ReustarantType];
+  reustarants: ReustarantType[];
 }
