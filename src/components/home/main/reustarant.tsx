@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { ReustarantType } from "../../../interface/interface";
+import { Reustarant } from "../../../interface/reustarant";
 import Link from "next/link";
 
-const Reustarant: FC<ReustarantType> = (props) => {
+const Reustarant: FC<Reustarant> = (props) => {
   const { id, name, type, time } = props;
   return (
     <div>

@@ -1,34 +1,9 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { promises as fs } from "fs";
-import path from "path";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { readFileReustarant } from "../../utils/read-res";
+import { Reustarant } from "../../interface/reustarant";
 
-type Dish = {
-  dishname: string;
-  imgUrl: string;
-  discription: string;
-  price: number;
-};
+const ReustarantPage = ({reustarants}: InferGetStaticPropsType<typeof getStaticProps>) => {
 
-type Menu = {
-  name: string;
-  dishlist: Dish[];
-};
-
-export type Reustarant = {
-  id: string;
-  name: string;
-  type: string;
-  time: string;
-  image: string;
-  wallpaper: string;
-  menu: Menu[];
-};
-
-const ReustarantPage = ({
-  reustarants,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  // const reustarantMenu = reustarants[0].menu;
-  // console.log(reustarants);
   return (
     <div>
       {reustarants.menu.map((item, i) => {
@@ -39,15 +14,24 @@ const ReustarantPage = ({
 };
 export default ReustarantPage;
 
-export const getServerSideProps: GetServerSideProps<{
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const data = await readFileReustarant();
+  return {
+    paths: data.map((item) => ({
+      params: { id: item.id },
+    })),
+    fallback: false
+  };
+  
+};
+export const getStaticProps: GetStaticProps<{
   reustarants: Reustarant;
 }> = async (ctx) => {
-  const { query } = ctx;
-  const checkDataFetch = path.join(process.cwd(), "db/db1.json");
-  const fileDb = await fs.readFile(checkDataFetch, "utf8");
-
-  const data = JSON.parse(fileDb) as Reustarant[];
-  const reustarants = data.find((p) => p.id === query.id) as Reustarant;
+    const { params } = ctx;
+  const data = await readFileReustarant();
+  // @ts-ignore
+  const reustarants = data.find((p) => p.id === params.id) as Reustarant;
 
   // const res = await fetch(`http://localhost:3000/api/${query.id}`);
   // const data = await res.json();

@@ -1,14 +1,19 @@
-import { FC } from "react";
-import { ReustarantTypeProps } from "../../../interface/interface";
+import { FC, Fragment } from "react";
+import { Reustarant as ReustarantType } from "../../../interface/reustarant";
 import Reustarant from "./reustarant";
 
-const ReustarantList: FC<ReustarantTypeProps> = ({ reustarants }) => {
-  const renderReustarantList = reustarants.map((item) => {
-    const { id, name, type, time } = item;
-    return <Reustarant key={id} id={id} name={name} type={type} time={time} />;
-  });
+type ReustarantListProps = {
+  reustarants: ReustarantType[];
+};
 
-  return <div>{renderReustarantList}</div>;
+const ReustarantList: FC<ReustarantListProps> = ({ reustarants }) => {
+  return (
+    <>
+      {reustarants.map((item, id) => {
+        return <Reustarant key={id} {...item} />;
+      })}
+    </>
+  );
 };
 
 export default ReustarantList;

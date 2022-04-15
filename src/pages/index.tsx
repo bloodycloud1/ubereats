@@ -1,12 +1,9 @@
-import { FC } from "react";
-import { GetServerSideProps } from "next";
-import { ReustarantTypeProps } from "../interface/interface";
 import ReustarantList from "../components/home/main/list";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { readFileReustarant } from "../utils/read-res";
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch("http://localhost:3000/api/reustarants");
-  const data = await res.json();
-
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await readFileReustarant();
   return {
     props: {
       reustarants: data,
@@ -14,7 +11,22 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-const Home: FC<ReustarantTypeProps> = ({ reustarants }) => {
+
+// REMOVE но надо чекать
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const data = await readFileReustarant();
+//   return {
+//     paths: data.map((item) => ({
+//       params: { id: item.id },
+//     })),
+//     fallback: false
+//   };
+  
+// };
+
+const Home = ({
+  reustarants,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return <ReustarantList reustarants={reustarants} />;
 };
 
