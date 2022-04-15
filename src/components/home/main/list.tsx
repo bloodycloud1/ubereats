@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { GetServerSideProps } from "next";
-import { ReustarantTypeProps } from "../interface/ReustarantType";
-import Reustarant from "./Reustarant";
+import { ReustarantTypeProps } from "../../../interface/interface";
+import Reustarant from "./reustarant";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch("http://localhost:3000/api/reustarants");
