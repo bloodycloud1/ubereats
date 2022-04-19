@@ -1,33 +1,20 @@
-import ReustarantList from "../components/home/main/list";
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { readFileReustarant } from "../utils/read-res";
+import RestaurantList from '../components/home/main/restaurant-list';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { readFileRestaurant } from '../utils/read-res';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await readFileReustarant();
+  const data = await readFileRestaurant();
   return {
     props: {
-      reustarants: data,
-    },
+      restaurants: data
+    }
   };
 };
 
-
-// REMOVE но надо чекать
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const data = await readFileReustarant();
-//   return {
-//     paths: data.map((item) => ({
-//       params: { id: item.id },
-//     })),
-//     fallback: false
-//   };
-  
-// };
-
 const Home = ({
-  reustarants,
+  restaurants
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return <ReustarantList reustarants={reustarants} />;
+  return <RestaurantList restaurants={restaurants} />;
 };
 
 export default Home;

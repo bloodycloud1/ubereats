@@ -10,7 +10,7 @@ type Menu = {
   dishlist: Dish[];
 };
 
-export type Reustarant = {
+export type Restaurant = {
   id: string;
   name: string;
   type: string;
