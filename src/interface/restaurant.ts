@@ -1,21 +1,21 @@
-type Dish = {
+interface DishType {
   dishname: string;
   imgUrl: string;
   discription: string;
   price: number;
-};
+}
 
-type Menu = {
+interface MenuType {
   name: string;
-  dishlist: Dish[];
-};
+  dishlist: DishType[];
+}
 
-export type Restaurant = {
+export interface RestaurantType {
   id: string;
   name: string;
   type: string;
   time: string;
   image: string;
   wallpaper: string;
-  menu: Menu[];
-};
+  menu: MenuType[];
+}

@@ -1,6 +1,6 @@
 import RestaurantList from '../components/home/main/restaurant-list';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { readFileRestaurant } from '../utils/read-res';
+import { readFileRestaurant } from '../utils/read-file-restaurant';
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await readFileRestaurant();
