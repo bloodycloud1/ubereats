@@ -11,9 +11,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Home = ({
-  restaurants
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = ({ restaurants }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return <RestaurantList restaurants={restaurants} />;
 };
 
