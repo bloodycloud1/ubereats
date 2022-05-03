@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { RestaurantType } from '../../../interface/restaurant';
+import { RestaurantType } from '../../../../interface/restaurant';
 import Link from 'next/link';
 
 const Restaurant: FC<RestaurantType> = (props) => {

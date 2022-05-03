@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { RestaurantType } from '../../../interface/restaurant';
+import { RestaurantType } from '../../../../interface/restaurant';
 import Restaurant from './restaurant-card';
 
 type RestaurantListProps = {

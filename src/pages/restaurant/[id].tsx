@@ -6,9 +6,13 @@ import TabsDishType from '../../components/restaurant/main/tabs/tabs-dish-type';
 import TabPanel from '../../components/restaurant/main/tabs/tab-panel';
 import TabDishCard from '../../components/restaurant/main/tabs/tab-dish-card';
 import { Tab } from '@mui/material';
+import HeadApp from '../../components/head/head';
+// import ArrowBackLink from '../../components/restaurant/main/arrow-back-link/arrow-back-link';
 
 const RestaurantPage = ({ restaurant }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const restaurantMenu = restaurant.menu;
+  const restaurantName = restaurant.name;
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, newValue: number) => {
@@ -17,30 +21,40 @@ const RestaurantPage = ({ restaurant }: InferGetStaticPropsType<typeof getStatic
   };
 
   return (
-    <div className="container mx-auto">
-      <TabsDishType value={value} handleChange={handleChange}>
-        {restaurantMenu.map((item, i) => {
-          return <Tab label={item.name} key={i} />;
-        })}
-      </TabsDishType>
-      <div>
-        {restaurantMenu.map((item, index) => {
-          return (
-            <TabPanel value={value} index={index} key={index}>
-              {item.dishlist.map((item, index) => {
-                return (
-                  <TabDishCard
-                    dishname={item.dishname}
-                    discription={item.discription}
-                    price={item.price}
-                    imgUrl={item.imgUrl}
-                    key={index}
-                  />
-                );
-              })}
-            </TabPanel>
-          );
-        })}
+    <div className="id-page">
+      <HeadApp title={`UberEats: ${restaurantName}`} />
+
+      <div className="wallpaper container mx-auto">
+        <img src={restaurant.wallpaper} className="wallpaper-img mx-auto" />
+      </div>
+
+      <div className="container mx-auto">
+        <TabsDishType value={value} handleChange={handleChange}>
+          {restaurantMenu.map((item, index) => {
+            const { name } = item;
+            return <Tab label={name} key={index} />;
+          })}
+        </TabsDishType>
+        <div>
+          {restaurantMenu.map((item, index) => {
+            return (
+              <TabPanel value={value} index={index} key={index}>
+                {item.dishlist.map((item, index) => {
+                  const { dishname, discription, price, imgUrl } = item;
+                  return (
+                    <TabDishCard
+                      dishname={dishname}
+                      discription={discription}
+                      price={price}
+                      imgUrl={imgUrl}
+                      key={index}
+                    />
+                  );
+                })}
+              </TabPanel>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -56,9 +70,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false
   };
 };
-export const getStaticProps: GetStaticProps<{
-  restaurant: RestaurantType;
-}> = async (ctx) => {
+export const getStaticProps: GetStaticProps<{ restaurant: RestaurantType }> = async (ctx) => {
   const id = ctx.params?.id as string;
   const data = await readFileRestaurant();
   const restaurant = data.find((p) => p.id === id) as RestaurantType;
