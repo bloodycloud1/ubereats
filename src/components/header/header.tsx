@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Cart from '../cart/cart';
+// import Cart from '../cart/cart';
 
 const Header = () => {
   return (
@@ -14,7 +14,7 @@ const Header = () => {
             </Link>
           </div>
           <div className="flex items-center">
-            <Cart />
+            {/* <Cart /> */}
           </div>
         </div>
       </div>

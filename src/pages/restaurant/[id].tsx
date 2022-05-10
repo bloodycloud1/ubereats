@@ -2,12 +2,12 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { readFileRestaurant } from '../../utils/read-file-restaurant';
 import { RestaurantType } from '../../interface/restaurant';
-import TabsDishType from '../../components/restaurant/main/tabs/tabs-dish-type';
-import TabPanel from '../../components/restaurant/main/tabs/tab-panel';
-import TabDishCard from '../../components/restaurant/main/tabs/tab-dish-card';
+import TabsDishType from '../../components/restaurant/main/menu/tabs-dish-type';
+import TabPanel from '../../components/restaurant/main/menu/tab-panel';
+import TabDishCard from '../../components/restaurant/main/menu/tab-dish-card';
 import { Tab } from '@mui/material';
 import HeadApp from '../../components/head/head';
-// import ArrowBackLink from '../../components/restaurant/main/arrow-back-link/arrow-back-link';
+import WallpaperRestaurant from '../../components/restaurant/main/wallpaper/wallpaper';
 
 const RestaurantPage = ({ restaurant }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const restaurantMenu = restaurant.menu;
@@ -23,11 +23,7 @@ const RestaurantPage = ({ restaurant }: InferGetStaticPropsType<typeof getStatic
   return (
     <div className="id-page">
       <HeadApp title={`UberEats: ${restaurantName}`} />
-
-      <div className="wallpaper container mx-auto">
-        <img src={restaurant.wallpaper} className="wallpaper-img mx-auto" />
-      </div>
-
+      <WallpaperRestaurant wallpaperUrl={restaurant.wallpaper} />
       <div className="container mx-auto">
         <TabsDishType value={value} handleChange={handleChange}>
           {restaurantMenu.map((item, index) => {
