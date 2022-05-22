@@ -27,30 +27,27 @@ const RestaurantPage = ({ restaurant }: InferGetStaticPropsType<typeof getStatic
       <div className="container mx-auto">
         <TabsDishType value={value} handleChange={handleChange}>
           {restaurantMenu.map((item, index) => {
-            const { name } = item;
-            return <Tab label={name} key={index} />;
+            return <Tab label={item.name} key={index} />;
           })}
         </TabsDishType>
-        <div>
-          {restaurantMenu.map((item, index) => {
-            return (
-              <TabPanel value={value} index={index} key={index}>
-                {item.dishlist.map((item, index) => {
-                  const { dishname, discription, price, imgUrl } = item;
-                  return (
-                    <TabDishCard
-                      dishname={dishname}
-                      discription={discription}
-                      price={price}
-                      imgUrl={imgUrl}
-                      key={index}
-                    />
-                  );
-                })}
-              </TabPanel>
-            );
-          })}
-        </div>
+        {restaurantMenu.map((item, index) => {
+          return (
+            <TabPanel value={value} index={index} key={index}>
+              {item.dishlist.map((item, index) => {
+                const { dishname, discription, price, imgUrl } = item;
+                return (
+                  <TabDishCard
+                    dishname={dishname}
+                    discription={discription}
+                    price={price}
+                    imgUrl={imgUrl}
+                    key={index}
+                  />
+                );
+              })}
+            </TabPanel>
+          );
+        })}
       </div>
     </div>
   );

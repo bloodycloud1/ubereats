@@ -1,11 +1,11 @@
-interface DishType {
+export interface DishType {
   dishname: string;
   imgUrl: string;
   discription: string;
   price: number;
 }
 
-interface MenuType {
+export interface MenuType {
   name: string;
   dishlist: DishType[];
 }
@@ -18,4 +18,8 @@ export interface RestaurantType {
   image: string;
   wallpaper: string;
   menu: MenuType[];
+}
+
+export interface WallpaperUrl extends RestaurantType {
+  wallpaper: string
 }

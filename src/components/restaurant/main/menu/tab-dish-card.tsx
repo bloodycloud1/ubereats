@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { DishType } from '../../../../interface/restaurant';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -15,7 +16,7 @@ const style = {
   p: 4
 };
 
-const TabDishCard = (props: any) => {
+const TabDishCard: FC<DishType> = (props) => {
   const { dishname, discription, price, imgUrl } = props;
 
   const [open, setOpen] = React.useState(false);

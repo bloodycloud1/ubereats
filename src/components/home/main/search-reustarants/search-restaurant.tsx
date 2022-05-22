@@ -1,5 +1,3 @@
-
-
 const SearchReustarant = () => {
   return (
     <div className="container mx-auto my-8">

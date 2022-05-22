@@ -1,5 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
+import React, { FC, ReactNode } from 'react';
 
 const theme = createTheme({
   palette: {
@@ -7,13 +8,18 @@ const theme = createTheme({
       main: '#327430'
     },
     secondary: {
-      // This is green.A700 as hex.
       main: '#327430'
     }
   }
 });
 
-const TabsDishType = (props: any) => {
+type TabsDishTypeProps = {
+  children: ReactNode;
+  value: number;
+  handleChange: any;
+};
+
+const TabsDishType: FC<TabsDishTypeProps> = (props) => {
   const { children, value, handleChange } = props;
 
   return (
