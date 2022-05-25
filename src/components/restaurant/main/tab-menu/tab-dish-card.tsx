@@ -25,12 +25,7 @@ const TabDishCard: FC<DishType> = (props) => {
 
   return (
     <>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+      <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
           <img src={imgUrl} alt="" />
           <Typography id="modal-modal-title" variant="h6" component="h2">
@@ -46,15 +41,8 @@ const TabDishCard: FC<DishType> = (props) => {
       </Modal>
       <div className="border border-solid border-grey-e rounded w-full">
         <div className="flex">
-          <div
-            className="xs:h-27 xs:w-36 sm:h-36 sm:w-56 md:h-54 md:w-62 xlg:h-58 xlg:w-72 cursor-pointer"
-            onClick={handleOpen}
-          >
-            <img
-              className="xs:h-27 xs:w-36 sm:h-36 sm:w-56 md:h-54 md:w-62 xlg:h-58 xlg:w-72"
-              src={imgUrl}
-              alt="картинка блюда"
-            />
+          <div className="xs:h-27 xs:w-36 sm:h-36 sm:w-56 md:h-54 md:w-62 xlg:h-58 xlg:w-72 cursor-pointer" onClick={handleOpen}>
+            <img className="xs:h-27 xs:w-36 sm:h-36 sm:w-56 md:h-54 md:w-62 xlg:h-58 xlg:w-72" src={imgUrl} alt="картинка блюда" />
           </div>
           {/* SECOND PART CARD */}
           <div className="w-full relative">

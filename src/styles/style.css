@@ -4,22 +4,30 @@
     /* top: 50%; */
     background-color: #faf8f5;
     width: 272px;
-    bottom: -20%;
     transform: translate(8px, 0);
     /* padding: 0, 8px, 0, 8px; */
     opacity: 0.8;
     text-align: center;
   }
-  .wallpaper {
+  /* .wallpaper {
     margin-bottom: 80px;
-  }
+  }*/
 }
 
-/* .wallpaper-wrapper {
+.wallpaper-wrapper {
   position: absolute;
   top: 50%;
-  width: 420px;
-
-  transform: translate(8px, -50%);
   padding: 0, 8px, 0, 8px;
-} */
+  transform: translate(8px, -50%);
+
+  @media screen and (min-width: 320px) {
+    position: absolute;
+    top: 50%;
+    width: 280px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 420px;
+    transform: translate(8px, -50%);
+    padding: 0, 8px, 0, 8px;
+  }
+}
