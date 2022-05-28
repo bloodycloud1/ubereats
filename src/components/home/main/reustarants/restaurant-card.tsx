@@ -9,12 +9,12 @@ const Restaurant: FC<RestaurantType> = (props) => {
       <Link href="/restaurant/[id]" as={`/restaurant/${id}`} passHref>
         <a>
           <div>
-            <img className="w-full h-64" src={image}/>
+            <img className="w-full h-64" src={image} />
           </div>
-          <div>
-            <h3 className="text-base">{name}</h3>
+          <div className=" pl-3">
+            <h3 className="text-base mt-3">{name}</h3>
             <div className="text-tiny my-1">{type}</div>
-            <div className="text-tiny">{time}</div>
+            <div className="text-tiny pb-3">{time}</div>
           </div>
         </a>
       </Link>
