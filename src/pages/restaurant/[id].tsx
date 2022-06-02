@@ -7,19 +7,17 @@ import HeadApp from '../../components/head/head';
 import WallpaperRestaraunt from '../../components/restaurant/main/wallpaper/wallpaper';
 
 const RestaurantPage = ({ restaurant }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { name, menu } = restaurant;
+
   return (
     <>
-      <HeadApp title={`UberEats: ${restaurant.name}`} />
-      <WallpaperRestaraunt
-        wallpaperUrl={restaurant.wallpaper}
-        wallpaperName={restaurant.name}
-        wallpaperType={restaurant.type}
-        wallpaperTime={restaurant.time}
-      />
-      <TabSection {...restaurant} />
+      <HeadApp title={`UberEats: ${name}`} />
+      <WallpaperRestaraunt {...restaurant} />
+      <TabSection menu={menu} />
     </>
   );
 };
+
 export default RestaurantPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {

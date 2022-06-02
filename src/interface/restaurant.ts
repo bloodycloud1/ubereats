@@ -11,15 +11,11 @@ export interface MenuType {
 }
 
 export interface RestaurantType {
-  id: string;
-  name: string;
-  type: string;
-  time: string;
-  image: string;
-  wallpaper: string;
-  menu: MenuType[];
-}
-
-export interface WallpaperUrl extends RestaurantType {
-  wallpaper: string
+  id?: string;
+  name?: string;
+  type?: string;
+  time?: string;
+  image?: string;
+  wallpaper?: string;
+  menu?: MenuType[];
 }

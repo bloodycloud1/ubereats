@@ -1,7 +1,6 @@
 .wallpaper-wrapper {
   position: absolute;
   top: 50%;
-  /* left: 50%; */
   transform: translate(-50%, -50%);
   opacity: 0.9;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
