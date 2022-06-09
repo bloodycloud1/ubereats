@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // import ModalCart from '../modal-cart/modal-cart';
-
+// const modalElement = document.querySelector('.modal-content');
 const ModalCart = ({ show, close }: any) => {
   return (
     <div
@@ -21,7 +21,7 @@ const ModalCart = ({ show, close }: any) => {
 const Cart = () => {
   const [show, setShow] = useState(false);
 
-  const closeModalHandler = (e) => {
+  const closeModalHandler = () => {
     setShow(false);
   };
 
