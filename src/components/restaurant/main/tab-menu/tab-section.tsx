@@ -15,7 +15,7 @@ const TabSection: FC<RestaurantType> = ({ menu }) => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mb-20">
       <TabsDishType value={value} handleChange={onChange}>
         {menu.map((item, index) => {
           return <Tab label={item.name} key={index} />;

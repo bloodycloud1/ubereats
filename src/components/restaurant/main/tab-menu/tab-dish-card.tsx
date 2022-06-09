@@ -56,8 +56,8 @@ const TabDishCard: FC<DishType> = (props) => {
               <div className="flex items-center justify-between mx-2">
                 <div className="xs:text-xs-14 sm:text-xl lg:text-3xl mr-3">{price} р</div>
                 <div className="flex start">
-                  <div className="flex items-center justify-center border rounded-full px-2 py-1">
-                    <div className="xs:text-xs-10 sm:text-sm md:text-base">добавить в корзину</div>
+                  <div className="flex items-center justify-center border rounded-full px-2 py-1 cursor-pointer">
+                    <div className="xs:text-xs-10 sm:text-sm md:text-base">добавить</div>
                     <img className="xs:h-3 xs:w-3 sm:h-4 sm:w-4" src="/images/components/header/shopbag.svg" />
                   </div>
                 </div>
