@@ -38,7 +38,7 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal__box {
+.modal-box {
   position: relative;
   width: 80%;
   margin: 4% 10% 0 10%;
