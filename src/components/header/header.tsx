@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import Cart from '../cart/cart';
 
 const Header = () => {
+  const [openModal, setOpenModal] = useState(null);
+
   return (
     <header className="shadow-md">
       <div className="container mx-auto">
@@ -14,7 +17,7 @@ const Header = () => {
             </Link>
           </div>
           <div className="flex items-center">
-            <Cart />
+            <Cart openModal={openModal} setOpenModal={setOpenModal} />
           </div>
         </div>
       </div>

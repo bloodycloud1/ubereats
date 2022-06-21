@@ -5,6 +5,8 @@ import { RestaurantType } from '../../interface/restaurant';
 import TabSection from '../../components/restaurant/main/tab-menu/tab-section';
 import HeadApp from '../../components/head/head';
 import WallpaperRestaraunt from '../../components/restaurant/main/wallpaper/wallpaper';
+import ModalCart from '../../components/modal/modal-cart';
+import Header from '../../components/header/header';
 
 const RestaurantPage = ({ restaurant }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { name, menu } = restaurant;
@@ -12,6 +14,7 @@ const RestaurantPage = ({ restaurant }: InferGetStaticPropsType<typeof getStatic
   return (
     <>
       <HeadApp title={`UberEats: ${name}`} />
+      <Header />
       <WallpaperRestaraunt {...restaurant} />
       <TabSection menu={menu} />
     </>

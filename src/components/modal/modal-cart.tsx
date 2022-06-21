@@ -1,26 +1,18 @@
-import { useRef } from 'react';
-import Order from '../orders/order';
-
-const ModalCart = ({ isOpen, onClose }: any) => {
-  const outsideRef = useRef(null);
-
-  const ref = useRef(null);
-
-  const handleCloseOnOverlay = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    if (e.target === outsideRef.current) {
-      onClose();
+const ModalCart = ({ setOpenModal }: any) => {
+  const closeModal = (e: any) => {
+    if (e.target.id === 'overlay') {
+      setOpenModal(null);
     }
   };
 
-  return isOpen ? (
-    <div className={'modal'} ref={outsideRef} onClick={handleCloseOnOverlay}>
-      <div className={'modal-content'} />
-      <div className={'modal-box'}>
+  return (
+    <div id="overlay" onClick={closeModal}>
+      <div className="modal container mx-auto">
         <h2>Корзина</h2>
-        <Order ref={ref} />
+        {/* <Order /> */}
       </div>
     </div>
-  ) : null;
+  );
 };
 
 export default ModalCart;

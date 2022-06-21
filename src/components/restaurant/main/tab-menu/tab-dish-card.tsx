@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useState } from 'react';
 import { DishType } from '../../../../interface/restaurant';
 import ModalDishCard from '../../../modal/modal-dish-card';
 
@@ -7,10 +7,7 @@ const TabDishCard: FC<DishType> = (props) => {
   const [isModalOpen, setModalState] = React.useState(false);
   const toggleModalDishCard = () => setModalState(!isModalOpen);
 
-  const orderElem = useRef(null);
-
-  const createOrder = () => {};
-
+  
   return (
     <>
       <ModalDishCard isOpen={isModalOpen} onClose={toggleModalDishCard}>
@@ -40,7 +37,7 @@ const TabDishCard: FC<DishType> = (props) => {
                 <div className="xs:text-xs-14 sm:text-xl lg:text-3xl mr-3">{price} р</div>
                 <div className="flex start">
                   <div className="flex items-center justify-center border rounded-full px-2 py-1 cursor-pointer">
-                    <div className="xs:text-xs-10 sm:text-sm md:text-base" onClick={() => createOrder()}>
+                    <div className="xs:text-xs-10 sm:text-sm md:text-base" >
                       добавить
                     </div>
                     <img className="xs:h-3 xs:w-3 sm:h-4 sm:w-4" src="/images/components/header/shopbag.svg" />

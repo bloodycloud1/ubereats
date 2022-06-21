@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import ModalCart from '../modal/modal-cart';
 
-const Cart = () => {
-  const [isModalOpen, setModalState] = useState(false);
-  const toggleModal = () => setModalState(!isModalOpen);
+const Cart = ({ openModal, setOpenModal }: any) => {
+  // const [openModal, setOpenModal] = useState(null);
 
   return (
     <>
@@ -11,9 +10,9 @@ const Cart = () => {
         <div className=" absolute h-6 w-6 text-center bg-green-57 rounded-full -z-10 bottom-2.5 left-3">
           <span className=" text-white-f">0</span>
         </div>
-        <img className="h-6 w-6 cursor-pointer z-10" src="images/components/header/shopbag.svg" onClick={toggleModal} />
+        <img className="h-6 w-6 cursor-pointer z-10" src="/images/components/header/shopbag.svg" onClick={setOpenModal} />
       </div>
-      <ModalCart isOpen={isModalOpen} onClose={toggleModal} />
+      {openModal && <ModalCart setOpenModal={setOpenModal} />}
     </>
   );
 };
