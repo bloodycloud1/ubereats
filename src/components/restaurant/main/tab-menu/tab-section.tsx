@@ -5,6 +5,7 @@ import TabPanel from './tab-panel';
 import TabDishCard from './tab-dish-card';
 import TabsDishType from './tabs-dish-type';
 import TabTitle from './tab-title';
+import { useOpenModal } from '../../../hooks/useOpenModal';
 
 const TabSection: FC<RestaurantType> = ({ menu }) => {
   const [value, setValue] = React.useState(0);

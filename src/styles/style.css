@@ -27,7 +27,7 @@
   }
 }
 
-#overlay {
+#overlay-modal-cart {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -46,10 +46,26 @@
   background-color: white;
 }
 
-/* @media screen and (min-width: 320px) {
-  .modal {
-    width: 300px;
-    height: 600px;
-    margin-top: 60px;
-  }
-} */
+#overlay-modal-cart {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+}
+
+#overlay-modal-dish-card {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+}

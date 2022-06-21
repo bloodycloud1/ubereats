@@ -1,22 +1,21 @@
-import { useRef } from 'react';
-
-
-const ModalDishCard = ({ isOpen, onClose, children }: any) => {
-  const outsideRef = useRef(null);
-
-  const handleCloseOnOverlay = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    if (e.target === outsideRef.current) {
-      onClose();
+const ModalDishCard = ({ setOpenModal, imgUrl, dishname, discription, price }: any) => {
+  const closeModal = (e: any) => {
+    if (e.target.id === 'overlay-modal-dish-card') {
+      setOpenModal(null);
     }
   };
 
-  return isOpen ? (
-    <div className={'modal-dish-card'} ref={outsideRef} onClick={handleCloseOnOverlay}>
-      <div className={'modal-dish-card-content'} />
-      <div className={'modal-dish-card-box'}>{children}</div>
+  return (
+    <div id="overlay-modal-dish-card" onClick={closeModal}>
+      <div className="modal">
+        <img src={imgUrl} />
+        <h1>{dishname}</h1>
+        <p>{discription}</p>
+        <div>{price}</div>
+        <div>добавить</div>
+      </div>
     </div>
-  ) : null;
+  );
 };
 
 export default ModalDishCard;
-

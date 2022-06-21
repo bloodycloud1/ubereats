@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import ModalCart from '../modal/modal-cart';
 
 const Cart = ({ openModal, setOpenModal }: any) => {
-  // const [openModal, setOpenModal] = useState(null);
-
   return (
     <>
       <div className="relative">
