@@ -1,10 +1,11 @@
-import { useState } from 'react';
 import Link from 'next/link';
-import Cart from '../cart/cart';
+import React, { FC, ReactNode } from 'react';
 
-const Header = () => {
-  const [openModal, setOpenModal] = useState(null);
+type HeaderType = {
+  children?: ReactNode;
+};
 
+const Header: FC<HeaderType> = ({ children }: any) => {
   return (
     <header className="shadow-md">
       <div className="container mx-auto">
@@ -16,9 +17,7 @@ const Header = () => {
               </a>
             </Link>
           </div>
-          <div className="flex items-center">
-            <Cart openModal={openModal} setOpenModal={setOpenModal} />
-          </div>
+          <div className="flex items-center">{children}</div>
         </div>
       </div>
     </header>

@@ -1,20 +1,23 @@
-import React from 'react';
+import { useState } from 'react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { readFileRestaurant } from '../../utils/read-file-restaurant';
 import { RestaurantType } from '../../interface/restaurant';
 import TabSection from '../../components/restaurant/main/tab-menu/tab-section';
 import HeadApp from '../../components/head/head';
 import WallpaperRestaraunt from '../../components/restaurant/main/wallpaper/wallpaper';
-import ModalCart from '../../components/modal/modal-cart';
 import Header from '../../components/header/header';
+import Cart from '../../components/cart/cart';
 
 const RestaurantPage = ({ restaurant }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { name, menu } = restaurant;
+  const [openModal, setOpenModal] = useState(null);
 
   return (
     <>
       <HeadApp title={`UberEats: ${name}`} />
-      <Header />
+      <Header>
+        <Cart openModal={openModal} setOpenModal={setOpenModal} />
+      </Header>
       <WallpaperRestaraunt {...restaurant} />
       <TabSection menu={menu} />
     </>
