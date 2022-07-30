@@ -1,16 +1,16 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
 type TabTitleProps = {
-  children: ReactNode;
+  title: string;
   value: number;
   index: number;
 };
 
 const TabTitle: FC<TabTitleProps> = (props) => {
-  const { children, value, index } = props;
+  const { title, value, index } = props;
   return (
     <h1 className="text-2xl my-8" hidden={value !== index}>
-      {children}
+      {title}
     </h1>
   );
 };

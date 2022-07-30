@@ -15,7 +15,7 @@ export interface RestaurantType {
   name?: string;
   type?: string;
   time?: string;
-  image?: string;
-  wallpaper?: string;
+  image: string;
+  wallpaper: string | any;
   menu: MenuType[];
 }

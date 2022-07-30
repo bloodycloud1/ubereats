@@ -1,4 +1,4 @@
-.wallpaper-wrapper {
+/* .wallpaper-wrapper {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -25,26 +25,7 @@
   .wallpaper-wrapper {
     width: 420px;
   }
-}
-
-#overlay-modal-cart {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 20;
-}
-
-.modal {
-  /* height: 600px;
-  width: 600px; */
-  margin-top: 70px;
-  background-color: white;
-}
+} */
 
 #overlay-modal-cart {
   position: fixed;

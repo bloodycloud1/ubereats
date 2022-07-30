@@ -1,19 +1,18 @@
-import { FC } from 'react';
+import Image from 'next/image';
 import { RestaurantType } from '../../../../interface/restaurant';
 
-const WallpaperRestaurant: FC<RestaurantType> = (props) => {
-  const { wallpaper, name, type, time } = props;
+const WallpaperRestaurant = ({ wallpaper, name, type, time }: RestaurantType) => {
   return (
     <div className="container mx-auto">
       <div className="relative">
-        <div className="wallpaper-wrapper bg-white-f  shadow-md rounded-sm">
-          <div className="wallpaper-title md:mt-6 md:ml-12 xs:text-2xl md:text-4xl xs:text-center md:text-left">{name}</div>
-          <div className="flex xs:flex-col xs:items-center md:flex-row md:items-start md:justify-between md:mx-12 md:mb-9 md:mt-14">
-            <div className="wallpaper-restaurant-type xs:text-xs-14 lg:text-lg ">{type}</div>
-            <div className="wallpaper-restaurant-time xs:text-xs-14 lg:text-lg">{time}</div>
-          </div>
+        <div className="absolute z-10 xs:top-10 xs:left-1 md:left-1 bg-white-f rounded-[24px] xs:w-[280px] xs:h-[180px]">
+          <h1 className="xs:text-[24px] md:text-[36px] ml-12 mt-[38px]">{name}</h1>
+          <p className=" ml-12">{type}</p>
+          <p className=" ml-12">{time}</p>
         </div>
-        <img src={wallpaper} className="wallpaper-img" />
+        <div className="relative xs:h-[256px] md:h-[364px] xl:h-[460px]">
+          <Image src={wallpaper} layout="fill" alt="wallpaper-restaraunt" />
+        </div>
       </div>
     </div>
   );

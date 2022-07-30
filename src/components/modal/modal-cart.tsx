@@ -7,9 +7,8 @@ const ModalCart = ({ setOpenModal }: any) => {
 
   return (
     <div id="overlay-modal-cart" onClick={closeModal}>
-      <div className="modal container mx-auto">
-        <h2>Корзина</h2>
-        {/* <Order /> */}
+      <div className=" mt-40 xs:w-[280px] xs:h-[500px] bg-white-f">
+        <h1>shop bag</h1>
       </div>
     </div>
   );

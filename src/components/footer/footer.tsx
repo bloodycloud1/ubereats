@@ -1,10 +1,12 @@
+import Image from 'next/image';
+
 const Footer = () => {
   return (
     <footer className="bg-dark-26 text-white-f mt-auto">
       <div>
         <div className="container mx-auto">
           <div className="py-10">
-            <img src="/images/components/footer/footer-logo.svg" height="20px" width="192px" />
+            <Image src="/images/components/footer/footer-logo.svg" height="20px" width="192px" alt="" />
           </div>
           <hr className="text-grey-da" />
         </div>
@@ -14,13 +16,13 @@ const Footer = () => {
               <div className="my-3">#UberEats</div>
               <div className="flex">
                 <a href="https://www.facebook.com/UberEats">
-                  <img className="cursor-pointer" src="/images/components/footer/facebook.svg" />
+                  <Image className="cursor-pointer" src="/images/components/footer/facebook.svg" alt="facebook" />
                 </a>
                 <a href="https://twitter.com/UberEats">
-                  <img className="cursor-pointer mx-3" src="/images/components/footer/twitter.svg" />
+                  <Image className="cursor-pointer mx-3" src="/images/components/footer/twitter.svg" alt="twitter" />
                 </a>
                 <a href="https://www.instagram.com/ubereats/">
-                  <img className="cursor-pointer" src="/images/components/footer/instagram.svg" />
+                  <Image className="cursor-pointer" src="/images/components/footer/instagram.svg" alt="instagram" />
                 </a>
               </div>
               <div className="my-3">About UberEats</div>
@@ -42,12 +44,12 @@ const Footer = () => {
           <div className="flex justify-center py-10">
             <div className="mx-2.5">
               <a href="https://apps.apple.com/ru/app/uber-eats-%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0-%D0%B5%D0%B4%D1%8B/id1058959277">
-                <img src="/images/components/footer/appstore.png" height="40px" width="120px" />
+                <Image src="/images/components/footer/appstore.png" height="40px" width="120px" alt="appstore" />
               </a>
             </div>
             <div className="mx-2.5">
               <a href="https://play.google.com/store/apps/details?id=com.ubercab.eats&hl=ru&gl=US">
-                <img src="/images/components/footer/googleplay.png" height="40px" width="140px" />
+                <Image src="/images/components/footer/googleplay.png" height="40px" width="140px" alt="googleplay" />
               </a>
             </div>
           </div>
