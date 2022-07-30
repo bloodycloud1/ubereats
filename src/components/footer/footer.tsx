@@ -16,13 +16,19 @@ const Footer = () => {
               <div className="my-3">#UberEats</div>
               <div className="flex">
                 <a href="https://www.facebook.com/UberEats">
-                  <Image className="cursor-pointer" src="/images/components/footer/facebook.svg" alt="facebook" />
+                  <div className="relative">
+                    <Image className="cursor-pointer" src="/images/components/footer/facebook.svg" alt="facebook" layout="fill" />
+                  </div>
                 </a>
                 <a href="https://twitter.com/UberEats">
-                  <Image className="cursor-pointer mx-3" src="/images/components/footer/twitter.svg" alt="twitter" />
+                  <div className="relative">
+                    <Image className="cursor-pointer mx-3" src="/images/components/footer/twitter.svg" alt="twitter" layout="fill" />
+                  </div>
                 </a>
                 <a href="https://www.instagram.com/ubereats/">
-                  <Image className="cursor-pointer" src="/images/components/footer/instagram.svg" alt="instagram" />
+                  <div className="relative">
+                    <Image className="cursor-pointer" src="/images/components/footer/instagram.svg" alt="instagram" layout="fill" />
+                  </div>
                 </a>
               </div>
               <div className="my-3">About UberEats</div>
