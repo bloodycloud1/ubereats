@@ -6,18 +6,20 @@ type HeaderType = {
   children?: ReactNode;
 };
 
-const Header: FC<HeaderType> = ({ children }: any) => {
+const Header: FC<HeaderType> = ({ children }) => {
   return (
     <header className="shadow-md">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
-          <div className="my-7">
-            <Link href="/" passHref>
-              <div className="relative">
-                <Image src="/images/components/header/logo.svg" alt="ubereats" layout="fill" />
+          <Link href="/">
+            <a>
+              <div className="my-7">
+                <div className="relative h-[14px] w-[122px]">
+                  <Image src="/images/components/header/logo.svg" alt="ubereats" layout="fill" />
+                </div>
               </div>
-            </Link>
-          </div>
+            </a>
+          </Link>
           <div className="flex items-center">{children}</div>
         </div>
       </div>
